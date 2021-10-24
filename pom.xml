@@ -11,7 +11,11 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>abstract-factory-pattern</module>
+		<module>adapter-pattern</module>
+		<module>factory-pattern</module>
 		<module>singleton-pattern</module>
+		<module>strategy-pattern</module>
 	</modules>
 
 </project>
