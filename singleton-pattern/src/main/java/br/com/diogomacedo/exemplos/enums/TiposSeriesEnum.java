@@ -12,4 +12,8 @@ public enum TiposSeriesEnum {
 		this.tipoSerie = tipoSerie;
 	}
 
+	public String getTipoSerie() {
+		return tipoSerie;
+	}
+
 }

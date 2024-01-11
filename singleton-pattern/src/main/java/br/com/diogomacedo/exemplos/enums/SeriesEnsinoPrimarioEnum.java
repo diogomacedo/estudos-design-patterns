@@ -15,4 +15,8 @@ public enum SeriesEnsinoPrimarioEnum {
 		this.serie = serie;
 	}
 
+	public int getSerie() {
+		return serie;
+	}
+
 }

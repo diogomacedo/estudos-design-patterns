@@ -12,4 +12,8 @@ public enum SeriesEnsinoMedioEnum {
 		this.serie = serie;
 	}
 
+	public int getSerie() {
+		return serie;
+	}
+
 }

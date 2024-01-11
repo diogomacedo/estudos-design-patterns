@@ -6,15 +6,32 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Escola escola = Escola.getInstance();
+		System.out.println("Instanciando a Escola #1");
 
-		escola.setNomeEscola("Escola de Primeiro e Segundo Grau Xuxu Beleza");
+		Escola escolaUm = Escola.getInstance();
 
-		System.out.println("Nome da Escola #1: " + escola.getNomeEscola());
+		escolaUm.setNomeEscola("Escola de Primeiro e Segundo Grau Xuxu Beleza");
+
+		System.out.println("Nome da Escola #1: " + escolaUm.getNomeEscola());
+
+		System.out.println("");
+
+		System.out.println("Instanciando a Escola #2");
 
 		Escola escolaDois = Escola.getInstance();
 
+		escolaDois.setNomeEscola("Escolha de Primeiro e Segundo Grau Yuke");
+
 		System.out.println("Nome da Escola #2: " + escolaDois.getNomeEscola());
+
+		System.out.println("");
+
+		System.out.println("Nome da Escola #1: " + escolaUm.getNomeEscola());
+		System.out.println("Nome da Escola #2: " + escolaDois.getNomeEscola());
+
+		System.out.println("");
+
+		System.out.println("escolaUm=escolaDois => " + (escolaUm == escolaDois) );
 
 	}
 

@@ -18,4 +18,8 @@ public enum SeriesEnsinoFundamentalEnum {
 		this.serie = serie;
 	}
 
+	public int getSerie() {
+		return serie;
+	}
+
 }
