@@ -13,18 +13,15 @@ public class Main {
 		ingredientes.put("Manjericão", 3.0);
 		ingredientes.put("Tomate", 3.0);
 
-		Pizza pizzaDeMarguerita = new PizzaComum(ingredientes);
+		Pizza pizza = new PizzaComum(ingredientes);
 
-		Pizza pizzaDeMargueritaComBordaRecheada = new PizzaComBordaRecheada(pizzaDeMarguerita);
+		pizza = new PizzaComMassaIntegral(pizza);
+//
+//		pizza = new PizzaComBordaRecheada(pizza);
+//
+//		pizza = new PizzaComRecheioExtra(pizza);
 
-		Pizza pizzaDeMargueritaComBordaRecheadaComMassaIntegral = new PizzaComMassaIntegral(
-				pizzaDeMargueritaComBordaRecheada);
-
-		Pizza pizzaDeMargueritaComBordaRecheadaComMassaIntegralComRecheioExtra = new PizzaComRecheioExtra(
-				pizzaDeMargueritaComBordaRecheadaComMassaIntegral);
-
-		System.out.println(
-				"Preço da pizza: R$" + pizzaDeMargueritaComBordaRecheadaComMassaIntegralComRecheioExtra.preco());
+		System.out.println("Preço da pizza: R$" + pizza.preco());
 
 	}
 
