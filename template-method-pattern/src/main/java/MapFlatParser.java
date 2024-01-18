@@ -5,6 +5,10 @@ public class MapFlatParser extends AbstractFlatParser<Map<String, String>> {
 
 	private Map<String, String> map;
 
+	public MapFlatParser(Estrutura estrutura) {
+		super(estrutura);
+	}
+
 	@Override
 	public void initObjeto() {
 		this.map = new LinkedHashMap<String, String>();
@@ -17,23 +21,11 @@ public class MapFlatParser extends AbstractFlatParser<Map<String, String>> {
 
 	@Override
 	public void setValor(String campo, Object valor) {
-		String valorStr = "";
+		String resultado = "";
 		if (valor != null) {
-			valorStr = valor.toString();
+			resultado = valor.toString();
 		}
-		this.map.put(campo, valorStr);
-	}
-
-//	@Override
-//	public void adicionarElemento(String campo, Object valor) {
-//		// TODO Auto-generated method stub
-//
-//	}
-
-	@Override
-	public Map<String, String> innerParse(String texto) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		this.map.put(campo, resultado);
 	}
 
 }

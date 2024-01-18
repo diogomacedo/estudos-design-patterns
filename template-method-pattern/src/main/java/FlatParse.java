@@ -7,6 +7,11 @@ public class FlatParse<T> extends AbstractFlatParser<T> {
 	private T objeto;
 	private Class<T> classeDoObjeto;
 
+	public FlatParse(Estrutura estrutura, Class<T> classeDoObjeto) {
+		super(estrutura);
+		this.classeDoObjeto = classeDoObjeto;
+	}
+
 	@Override
 	public void initObjeto() {
 		try {
@@ -26,23 +31,12 @@ public class FlatParse<T> extends AbstractFlatParser<T> {
 	public void setValor(String campo, Object valor) {
 		try {
 			Field javaField = this.javaField(campo);
+			javaField.setAccessible(true);
 			javaField.set(this.objeto, valor);
 		} catch (IllegalArgumentException | IllegalAccessException e) {
 			String mensagemDeErro = ERRO_AO_INSTANCIAR_OBJETO + " - " + classeDoObjeto.getName();
 			throw new IllegalStateException(mensagemDeErro, e);
 		}
-	}
-
-//	@Override
-//	public void adicionarElemento(String campo, Object valor) {
-//		// TODO Auto-generated method stub
-//
-//	}
-
-	@Override
-	public T innerParse(String texto) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	private Field javaField(String fieldName) {

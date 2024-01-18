@@ -1,7 +1,10 @@
+import java.util.List;
 
 public abstract class AbstractFlatParser<T> {
 
-	private static final String ERRO = "Erro";
+	private static final String ERRO = "Erro ao realizar o parse do objeto";
+
+	private Estrutura estrutura;
 
 	public abstract void initObjeto();
 
@@ -9,19 +12,45 @@ public abstract class AbstractFlatParser<T> {
 
 	public abstract void setValor(String campo, Object valor);
 
-//	public abstract void adicionarElemento(String campo, Object valor);
+	public AbstractFlatParser(Estrutura estrutura) {
+		this.estrutura = estrutura;
+	}
 
-	public abstract T innerParse(String texto) throws Exception;
+	public List<T> parse(List<String> valores) {
 
-	public T parse(String texto) {
-
-		T resultado = null;
+		List<T> resultado = null;
 
 		try {
-			resultado = this.innerParse(texto);
+			resultado = this.innerParse(valores);
 		} catch (Exception e) {
-			String mensagemDeErro = ERRO + this.getObjeto().toString();
-			throw new IllegalStateException(mensagemDeErro, e);
+			throw new IllegalStateException(ERRO, e);
+		}
+
+		return resultado;
+
+	}
+
+	private List<T> innerParse(List<String> valores) throws Exception {
+
+		List<T> resultado = null;
+
+		try {
+
+			for (String valor : valores) {
+
+				for(Campo campo: this.estrutura.getCampos()) {
+
+					String nomeDoCampo = campo.getNome();
+					Integer tamanhoDoCampo = campo.getTamanho();
+
+					this.setValor(nomeDoCampo, valor);
+
+				}
+
+			}
+
+		} catch (Exception e) {
+
 		}
 
 		return resultado;
