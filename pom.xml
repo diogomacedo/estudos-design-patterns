@@ -20,12 +20,13 @@
 		<module>decorator-pattern</module>
 		<module>template-method-pattern</module>
 		<module>facade-pattern</module>
+		<module>state-pattern</module>
 	</modules>
 
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<lombok.version>1.18.20</lombok.version>
+		<lombok.version>1.18.30</lombok.version>
 	</properties>
 
 	<build>
