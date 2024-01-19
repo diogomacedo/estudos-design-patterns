@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class AbstractFlatParser<T> {
@@ -11,6 +12,8 @@ public abstract class AbstractFlatParser<T> {
 	public abstract T getObjeto();
 
 	public abstract void setValor(String campo, Object valor);
+
+	
 
 	public AbstractFlatParser(Estrutura estrutura) {
 		this.estrutura = estrutura;
@@ -32,25 +35,35 @@ public abstract class AbstractFlatParser<T> {
 
 	private List<T> innerParse(List<String> valores) throws Exception {
 
-		List<T> resultado = null;
+		List<T> resultado = new LinkedList<T>();
 
 		try {
 
 			for (String valor : valores) {
 
-				for(Campo campo: this.estrutura.getCampos()) {
+				int posicao = 0;
+
+				this.initObjeto();
+
+				for (Campo campo : this.estrutura.getCampos()) {
 
 					String nomeDoCampo = campo.getNome();
 					Integer tamanhoDoCampo = campo.getTamanho();
 
-					this.setValor(nomeDoCampo, valor);
+					String valorDoCampo = valor.substring(posicao, posicao + tamanhoDoCampo).trim();
+
+					this.setValor(nomeDoCampo, valorDoCampo);
+
+					posicao += tamanhoDoCampo;
 
 				}
+
+				resultado.add(this.getObjeto());
 
 			}
 
 		} catch (Exception e) {
-
+			throw e;
 		}
 
 		return resultado;
