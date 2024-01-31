@@ -21,6 +21,7 @@
 		<module>template-method-pattern</module>
 		<module>facade-pattern</module>
 		<module>state-pattern</module>
+		<module>chain-of-responsibility-pattern</module>
 	</modules>
 
 	<properties>
