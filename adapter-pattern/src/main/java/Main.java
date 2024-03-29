@@ -1,13 +1,16 @@
+/**
+ * Classe Cliente
+ */
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		ConversorDolar conversorDolar = new ConversorDolar(10, 2);
-		conversorDolar.calcular();
+		IConversor conversorDolar = new ConversorDolar(10, 2, 5);
+		conversorDolar.converter();
 
-		EuroAdapter conversorEuro = new EuroAdapter(8, 2);
-		conversorEuro.calcular();
+		IConversor conversorEuro = new EuroAdapter(10, 2, 5.5);
+		conversorEuro.converter();
 
 	}
 

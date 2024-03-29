@@ -1,15 +1,17 @@
 
-public class EuroAdapter implements ITarget {
+public class EuroAdapter implements IConversor {
 
-	private ConversorEuro conversor;
+	private CalculadoraEuro calculadoraEuro;
+	private double cotacao;
 
-	public EuroAdapter(double valorDoProduto, double valorDoServico) {
-		this.conversor = new ConversorEuro(valorDoProduto, valorDoServico);
+	public EuroAdapter(double valorDoProduto, double valorDoServico, double cotacao) {
+		this.calculadoraEuro = new CalculadoraEuro(valorDoProduto, valorDoServico);
+		this.cotacao = cotacao;
 	}
 
 	@Override
-	public double calcular() {
-		return this.conversor.calcularEmEuro();
+	public double converter() {
+		return this.calculadoraEuro.calcularEmEuro(this.cotacao);
 	}
 
 }
